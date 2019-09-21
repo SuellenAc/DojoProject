@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Dojo Project</string>
+    <string name="toolbar_back_content_description">Voltar</string>
+
+
+
+<!--    <string name="font_sul_sans_regular">fonts/Sul_Sans_Regular.otf</string>-->
+<!--    <string name="font_sul_sans_light">fonts/Sul_Sans_Light.otf</string>-->
+<!--    <string name="font_sul_sans_medium">fonts/Sul_Sans_Medium.otf</string>-->
+<!--    <string name="font_sul_sans_bold">fonts/Sul_Sans_Bold.otf</string>-->
+
 </resources>
