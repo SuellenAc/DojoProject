@@ -50,7 +50,15 @@ dependencies {
     kapt "androidx.lifecycle:lifecycle-compiler:$rootProject.ext.lifecycleVersion"
     testImplementation "androidx.arch.core:core-testing:$rootProject.ext.lifecycleVersion"
 
+    // Courotines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.1'
+
+    // Koin for Android
+    implementation "org.koin:koin-android:$koin_version"
+    // Koin Android Scope features
+    implementation "org.koin:koin-android-scope:$koin_version"
+    // Koin Android ViewModel features
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
 
     testImplementation 'junit:junit:4.12'
     testImplementation "io.mockk:mockk:1.9.3"
