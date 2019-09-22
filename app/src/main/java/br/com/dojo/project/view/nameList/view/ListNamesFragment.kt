@@ -1,4 +1,4 @@
-package br.com.dojo.project.view.nameList
+package br.com.dojo.project.view.nameList.view
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -14,7 +14,7 @@ import br.com.dojo.project.utils.addPaddingTop
 import br.com.dojo.project.utils.fragmentBinding
 import br.com.dojo.project.utils.statusBarHeightOverCard
 import br.com.dojo.project.view.chooseParams.model.ChooseParamsAppModel
-import br.com.dojo.project.view.nameList.ListNamesFragment
+import br.com.dojo.project.view.nameList.view.ListNamesFragment
 import kotlinx.android.synthetic.main.simple_toolbar.view.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
