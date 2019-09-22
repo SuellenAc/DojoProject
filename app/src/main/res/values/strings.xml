@@ -10,4 +10,7 @@
     <string name="choose_params_gender">Gênero</string>
     <string name="choose_params_button">Pesquisar</string>
 
+    <!--  List Names Fragment  -->
+    <string name="list_names_frag_title">Lista de Nomes</string>
+
 </resources>

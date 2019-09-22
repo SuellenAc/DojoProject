@@ -30,10 +30,11 @@ task clean(type: Delete) {
 ext {
     // App dependencies
     appcompat = '1.1.0'
+    support = '1.0.0'
     ktx = '1.1.0'
     gson = '2.7'
     retrofit = '2.1.0'
     retrofitJsonConverter = '2.1.0'
     lifecycleVersion = '2.1.0'
-
+    koin_version = '2.0.1'
 }

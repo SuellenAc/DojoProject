@@ -49,7 +49,7 @@ class ChooseParamsFragment : Fragment() {
         return binding.root
     }
 
-    fun observeChanges() {
+    private fun observeChanges() {
         chooseParamsViewModel.model.action.observe(viewLifecycleOwner, Observer { action ->
             when (action) {
                 is ChooseParamsAppModel.Action.OpenListNameFragment ->
