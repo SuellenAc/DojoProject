@@ -4,6 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
                 name="viewModel"
                 type="br.com.dojo.project.view.nameList.viewModel.ListNamesViewModel" />
@@ -11,7 +12,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true">
 
         <include
                 android:id="@+id/toolbar_container"
@@ -22,19 +25,42 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-
         <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:background="@color/white"
-                android:clickable="true"
-                android:focusable="true"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar_container" />
+                tools:listitem="@layout/name_item"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar_container"
+                app:present="@{viewModel.model.isSuccessStateVisible}" />
 
+        <FrameLayout
+                android:id="@+id/loading_container"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar_container"
+                app:present="@{viewModel.model.isLoadingStateVisible}">
+
+            <include layout="@layout/loading_view" />
+        </FrameLayout>
+
+        <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar_container"
+                app:present="@{viewModel.model.isErrorStateVisible}">
+
+            <include layout="@layout/error_view" />
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

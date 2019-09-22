@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/error_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="12dp"
+                app:srcCompat="@drawable/ic_error_outline_black_24dp"
+                app:tint="@color/red" />
+
+        <TextView
+                android:id="@+id/error_title"
+                style="@style/ErrorTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="@string/error" />
+
+        <Button
+                android:id="@+id/error_try"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:fontFamily="@font/roboto_medium"
+                android:text="@string/try_again"
+                android:textAllCaps="false"
+                android:textColor="@color/red" />
+
+    </LinearLayout>
+
+</layout>

@@ -13,4 +13,7 @@
     <!--  List Names Fragment  -->
     <string name="list_names_frag_title">Lista de Nomes</string>
 
+    <string name="error">Ocorreu um erro ao comunicar com o servidor!</string>
+    <string name="try_again">Tentar Novamente</string>
+
 </resources>
