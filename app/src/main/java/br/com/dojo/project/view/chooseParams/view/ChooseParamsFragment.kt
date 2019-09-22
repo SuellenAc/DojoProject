@@ -54,9 +54,13 @@ class ChooseParamsFragment : Fragment() {
             when (action) {
                 is ChooseParamsAppModel.Action.OpenListNameFragment ->
                     activity?.addFragment(
-                    ListNamesFragment.newInstance(),
-                    ListNamesFragment.tag
-                )
+                        ListNamesFragment.newInstance(
+                            amount = action.amount,
+                            region = action.region,
+                            gender = action.gender
+                        ),
+                        ListNamesFragment.tag
+                    )
             }
         })
     }

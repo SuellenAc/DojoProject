@@ -13,6 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/white"
             android:clickable="true"
             android:focusable="true">
 
@@ -28,14 +29,12 @@
         <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:background="@color/white"
-                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:listitem="@layout/name_item"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar_container"
-                app:present="@{viewModel.model.isSuccessStateVisible}" />
+                app:present="@{viewModel.model.isSuccessStateVisible}"
+                tools:listitem="@layout/name_item" />
 
         <FrameLayout
                 android:id="@+id/loading_container"

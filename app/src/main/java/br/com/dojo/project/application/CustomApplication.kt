@@ -1,10 +1,7 @@
 package br.com.dojo.project.application
 
 import android.app.Application
-import br.com.dojo.project.koin.chooseParamsModule
-import br.com.dojo.project.koin.nameListModule
-import br.com.dojo.project.koin.repositoryModule
-import br.com.dojo.project.koin.serviceModule
+import br.com.dojo.project.koin.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -20,10 +17,11 @@ class CustomApplication : Application() {
             // Android context
             androidContext(this@CustomApplication)
             // modules
-            modules(chooseParamsModule)
-            modules(nameListModule)
             modules(serviceModule)
             modules(repositoryModule)
+            modules(interactorModule)
+            modules(chooseParamsModule)
+            modules(nameListModule)
         }
     }
 }
