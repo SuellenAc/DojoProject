@@ -16,4 +16,5 @@
     <string name="error">Ocorreu um erro ao comunicar com o servidor!</string>
     <string name="try_again">Tentar Novamente</string>
 
+    <string name="person_name">%s %s</string>
 </resources>

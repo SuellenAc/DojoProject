@@ -6,7 +6,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 class WebService {
     private val retrofit: Retrofit by lazy {
         Retrofit.Builder()
-            .baseUrl("http://localhost:7000")
+            .baseUrl("http://a443b97e.ngrok.io")
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
     }

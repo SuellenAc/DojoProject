@@ -20,4 +20,11 @@ class MainActivity : AppCompatActivity() {
         addFragment(ChooseParamsFragment.newInstance(), ChooseParamsFragment.tag)
     }
 
+    override fun onBackPressed() {
+        if (supportFragmentManager.backStackEntryCount > 1) {
+            supportFragmentManager.popBackStack()
+        } else {
+            super.onBackPressed()
+        }
+    }
 }

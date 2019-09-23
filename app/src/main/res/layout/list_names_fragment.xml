@@ -27,6 +27,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -49,17 +50,47 @@
             <include layout="@layout/loading_view" />
         </FrameLayout>
 
-        <FrameLayout
+        <LinearLayout
+                android:id="@+id/error_container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar_container"
                 app:present="@{viewModel.model.isErrorStateVisible}">
 
-            <include layout="@layout/error_view" />
-        </FrameLayout>
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/error_image_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:padding="12dp"
+                    app:srcCompat="@drawable/ic_error_outline_black_24dp"
+                    app:tint="@color/red" />
+
+            <TextView
+                    android:id="@+id/error_title"
+                    style="@style/ErrorTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/error" />
+
+            <Button
+                    android:id="@+id/error_try"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="16dp"
+                    android:background="?selectableItemBackgroundBorderless"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@string/try_again"
+                    android:textAllCaps="false"
+                    android:textColor="@color/red" />
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

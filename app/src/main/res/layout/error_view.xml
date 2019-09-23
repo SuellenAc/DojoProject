@@ -36,7 +36,6 @@
                 android:text="@string/try_again"
                 android:textAllCaps="false"
                 android:textColor="@color/red" />
-
     </LinearLayout>
 
 </layout>
