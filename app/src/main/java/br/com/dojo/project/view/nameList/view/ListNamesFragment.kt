@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -68,11 +69,11 @@ class ListNamesFragment : Fragment() {
         return binding.root
     }
 
-    private fun loadData(){
+    private fun loadData() {
         listNamesViewModel.loadData(amount, region, gender)
     }
 
-    private fun configureRecyclerView(){
+    private fun configureRecyclerView() {
         binding.recyclerView.layoutManager = LinearLayoutManager(context)
         binding.recyclerView.adapter = adapter
     }
@@ -84,5 +85,20 @@ class ListNamesFragment : Fragment() {
                     adapter.setData(action.personNames)
             }
         })
+
+        listNamesViewModel.model.errorMessage.observe(viewLifecycleOwner, Observer { message ->
+            if (message.isNotEmpty() && message.isNotBlank()) {
+                showErrorDialog(errorMessage = message)
+            }
+        })
+    }
+
+    private fun showErrorDialog(errorMessage: String) {
+        context?.let {
+            AlertDialog.Builder(it).apply {
+                setTitle(R.string.error)
+                setMessage(errorMessage)
+            }.create().show()
+        }
     }
 }

@@ -24,4 +24,6 @@ class ListNamesAppModel : BaseModel() {
     val isLoadingStateVisible: LiveData<Boolean> = Transformations.map(state) { it == State.LOADING }
     val isErrorStateVisible: LiveData<Boolean> = Transformations.map(state) { it == State.ERROR }
     val isSuccessStateVisible: LiveData<Boolean> = Transformations.map(state) { it == State.SUCCESS }
+
+    val errorMessage = MutableLiveData<String>().apply { value = "" }
 }

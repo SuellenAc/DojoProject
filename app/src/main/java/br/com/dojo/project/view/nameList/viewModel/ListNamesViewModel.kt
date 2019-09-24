@@ -2,7 +2,7 @@ package br.com.dojo.project.view.nameList.viewModel
 
 import br.com.dojo.project.common.viewModel.BaseViewModel
 import br.com.dojo.project.interactor.NamesInteractor
-import br.com.dojo.project.repository.model.AppResult
+import br.com.dojo.project.model.AppResult
 import br.com.dojo.project.view.nameList.model.ListNamesAppModel
 import kotlinx.coroutines.launch
 
@@ -20,6 +20,7 @@ class ListNamesViewModel(private val namesInteractor: NamesInteractor) :
                 }
                 is AppResult.Error -> {
                     model.state.postValue(ListNamesAppModel.State.ERROR)
+                    model.errorMessage.postValue(result.value.error)
                 }
             }
         }
