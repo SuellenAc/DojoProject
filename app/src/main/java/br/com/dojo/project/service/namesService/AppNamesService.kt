@@ -14,7 +14,7 @@ class AppNamesService(private val webService: WebService) : NamesService {
     private val requests = webService.createRequests(Requests::class.java)
 
     override suspend fun getNames(
-        amount: String?,
+        amount: Int?,
         region: String?,
         gender: String?
     ): AppResult<List<PersonName>, ApiError> =
@@ -29,7 +29,7 @@ class AppNamesService(private val webService: WebService) : NamesService {
     interface Requests {
         @GET("names")
         suspend fun getNames(
-            @Query("amount") amount: String?,
+            @Query("amount") amount: Int?,
             @Query("region") region: String?,
             @Query("gender") gender: String?
         ): List<PersonName>

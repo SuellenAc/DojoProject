@@ -5,7 +5,7 @@
     <!--  Choose Params Fragment  -->
     <string name="choose_params_frag_title">Pesquisa</string>
     <string name="choose_params_title">Escolha os paramêtros para iniciar a pesquisa</string>
-    <string name="choose_params_amount">Quantidade</string>
+    <string name="choose_params_amount">Quantidade de Nomes (Entre 1 e 30)</string>
     <string name="choose_params_region">Região</string>
     <string name="choose_params_gender">Gênero</string>
     <string name="choose_params_button">Pesquisar</string>
@@ -17,4 +17,6 @@
     <string name="try_again">Tentar Novamente</string>
 
     <string name="person_name">%s %s</string>
+
+    <string name="amount_error_message">A quantidade deve ser um valor númerico entre 1 e 30</string>
 </resources>

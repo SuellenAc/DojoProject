@@ -3,6 +3,7 @@ package br.com.dojo.project.view.nameList.viewModel
 import br.com.dojo.project.common.viewModel.BaseViewModel
 import br.com.dojo.project.interactor.NamesInteractor
 import br.com.dojo.project.model.AppResult
+import br.com.dojo.project.model.Gender
 import br.com.dojo.project.view.nameList.model.ListNamesAppModel
 import kotlinx.coroutines.launch
 
@@ -10,7 +11,7 @@ class ListNamesViewModel(private val namesInteractor: NamesInteractor) :
     BaseViewModel<ListNamesAppModel>() {
     override val model: ListNamesAppModel = ListNamesAppModel()
 
-    fun loadData(amount: String?, region: String?, gender: String?) {
+    fun loadData(amount: Int?, region: String?, gender: Gender?) {
         launch {
             model.state.postValue(ListNamesAppModel.State.LOADING)
             when (val result = namesInteractor.loadData(amount, region, gender)) {

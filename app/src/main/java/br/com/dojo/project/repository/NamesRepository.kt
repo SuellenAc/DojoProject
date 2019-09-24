@@ -8,7 +8,7 @@ import br.com.dojo.project.service.namesService.NamesService
 class NamesRepository(private val namesService: NamesService) {
 
     suspend fun getNames(
-        amount: String?,
+        amount: Int?,
         region: String?,
         gender: String?
     ): AppResult<List<PersonName>, ApiError> = namesService.getNames(amount, region, gender)

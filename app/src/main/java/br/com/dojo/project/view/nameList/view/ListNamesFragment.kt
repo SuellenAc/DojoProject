@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import br.com.dojo.project.R
 import br.com.dojo.project.databinding.ListNamesFragmentBinding
+import br.com.dojo.project.model.Gender
 import br.com.dojo.project.utils.addPaddingTop
 import br.com.dojo.project.utils.fragmentBinding
 import br.com.dojo.project.utils.statusBarHeightOverCard
@@ -29,10 +30,10 @@ class ListNamesFragment : Fragment() {
     companion object {
         const val tag: String = "ListNamesFragment"
 
-        fun newInstance(amount: String?, region: String?, gender: String?) =
+        fun newInstance(amount: Int, region: String?, gender: String?) =
             ListNamesFragment().apply {
                 arguments = Bundle().apply {
-                    putString(extraAmount, amount)
+                    putInt(extraAmount, amount)
                     putString(extraRegion, region)
                     putString(extraGender, gender)
                 }
@@ -42,9 +43,11 @@ class ListNamesFragment : Fragment() {
     private val binding by fragmentBinding<ListNamesFragmentBinding>(R.layout.list_names_fragment)
     private val listNamesViewModel: ListNamesViewModel by viewModel()
     private val adapter: ListNamesAdapter by lazy { ListNamesAdapter() }
-    private val amount: String? by lazy { arguments?.getString(extraAmount) }
+    private val amount: Int? by lazy { arguments?.getInt(extraAmount) }
     private val region: String? by lazy { arguments?.getString(extraRegion) }
-    private val gender: String? by lazy { arguments?.getString(extraGender) }
+    private val gender: Gender? by lazy {
+        Gender.fromString(arguments?.getString(extraGender) ?: "")
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import br.com.dojo.project.R
@@ -52,7 +53,7 @@ class ChooseParamsFragment : Fragment() {
     private fun observeChanges() {
         chooseParamsViewModel.model.action.observe(viewLifecycleOwner, Observer { action ->
             when (action) {
-                is ChooseParamsAppModel.Action.OpenListNameFragment ->
+                is ChooseParamsAppModel.Action.OpenListNameFragment -> {
                     activity?.addFragment(
                         ListNamesFragment.newInstance(
                             amount = action.amount,
@@ -61,7 +62,19 @@ class ChooseParamsFragment : Fragment() {
                         ),
                         ListNamesFragment.tag
                     )
+                }
+                is ChooseParamsAppModel.Action.ShowErrorValidationMessageDialog -> {
+                    showValidationErrorDialog(action.messageRes)
+                }
             }
         })
+    }
+
+    private fun showValidationErrorDialog(validationErrorMessageRes: Int) {
+        context?.let {
+            AlertDialog.Builder(it).apply {
+                setMessage(validationErrorMessageRes)
+            }.create().show()
+        }
     }
 }
