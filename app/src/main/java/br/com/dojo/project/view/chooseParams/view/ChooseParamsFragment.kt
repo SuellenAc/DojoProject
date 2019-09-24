@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import br.com.dojo.project.R
 import br.com.dojo.project.view.chooseParams.viewModel.ChooseParamsViewModel
 import br.com.dojo.project.databinding.ChooseParamsFragmentBinding
+import br.com.dojo.project.model.Gender
 import br.com.dojo.project.utils.addFragment
 import br.com.dojo.project.utils.addPaddingTop
 import br.com.dojo.project.utils.fragmentBinding
@@ -47,6 +48,7 @@ class ChooseParamsFragment : Fragment() {
             toolbar.button.visibility = View.GONE
         }
         observeChanges()
+        chooseParamsViewModel.getRegions()
         return binding.root
     }
 
@@ -66,6 +68,14 @@ class ChooseParamsFragment : Fragment() {
                 is ChooseParamsAppModel.Action.ShowErrorValidationMessageDialog -> {
                     showValidationErrorDialog(action.messageRes)
                 }
+
+                is ChooseParamsAppModel.Action.ShowGenderDialog -> {
+                    showSelectGenderDialog(action.genderList)
+                }
+
+                is ChooseParamsAppModel.Action.ShowRegionDialog -> {
+                    showSelectRegionDialog(action.regionList)
+                }
             }
         })
     }
@@ -77,4 +87,29 @@ class ChooseParamsFragment : Fragment() {
             }.create().show()
         }
     }
+
+    private fun showSelectRegionDialog(regions: Array<String>) {
+        context?.let {
+            AlertDialog.Builder(it).apply {
+                setTitle("Escolha a Região")
+                setItems(regions) { _, selectedOption ->
+                    val region = regions[selectedOption]
+                    chooseParamsViewModel.onRegionSelected(region = region)
+                }
+            }.create().show()
+        }
+    }
+
+    private fun showSelectGenderDialog(genderList: Array<String>) {
+        context?.let {
+            AlertDialog.Builder(it).apply {
+                setTitle("Escolha o Gênero")
+                setItems(genderList) { _, selectedOption ->
+                    val gender = Gender.fromString(genderList[selectedOption])
+                    chooseParamsViewModel.onGenderSelected(gender = gender?.name)
+                }
+            }.create().show()
+        }
+    }
+
 }

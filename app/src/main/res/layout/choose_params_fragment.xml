@@ -56,9 +56,9 @@
                             android:layout_height="match_parent"
                             android:gravity="center_vertical"
                             android:hint="@string/choose_params_amount"
+                            android:inputType="number"
                             android:lineSpacingExtra="6dp"
                             android:maxLines="1"
-                            android:inputType="number"
                             android:text="@={viewModel.model.amount}"
                             android:textColor="@color/medium_grey"
                             android:textColorHint="@color/light_grey" />
@@ -66,51 +66,43 @@
 
 
                 <!--Region-->
-                <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/region_layout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                <TextView
+                        style="@style/Subtitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
-                        app:boxStrokeColor="@color/medium_grey">
+                        android:text="@string/choose_params_region" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/region"
-                            style="@style/Subtitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:hint="@string/choose_params_region"
-                            android:lineSpacingExtra="6dp"
-                            android:maxLines="1"
-                            android:text="@={viewModel.model.region}"
-                            android:textColor="@color/medium_grey"
-                            android:textColorHint="@color/light_grey" />
-                </com.google.android.material.textfield.TextInputLayout>
-
+                <Button
+                        android:id="@+id/region_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/transparent_box_with_borders"
+                        android:drawableEnd="@drawable/ic_expand_more_black_24dp"
+                        android:onClick="@{() -> viewModel.onRegionSelectionClick()}"
+                        android:text="@{viewModel.model.region}" />
 
                 <!--Gender-->
-                <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/gender_layout"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                <TextView
+                        style="@style/Subtitle"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
-                        app:boxStrokeColor="@color/medium_grey">
+                        android:text="@string/choose_params_gender" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/gender"
-                            style="@style/Subtitle"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:hint="@string/choose_params_gender"
-                            android:lineSpacingExtra="6dp"
-                            android:maxLines="1"
-                            android:text="@={viewModel.model.gender}"
-                            android:textColor="@color/medium_grey"
-                            android:textColorHint="@color/light_grey" />
-                </com.google.android.material.textfield.TextInputLayout>
+                <Button
+                        android:id="@+id/gender_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="8dp"
+                        android:textAllCaps="false"
+                        android:background="@drawable/transparent_box_with_borders"
+                        android:drawableEnd="@drawable/ic_expand_more_black_24dp"
+                        android:onClick="@{() -> viewModel.onGenderSelectionClick()}"
+                        android:text="@{viewModel.model.gender}" />
 
                 <!-- Button -->
                 <Button
