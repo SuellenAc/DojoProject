@@ -7,12 +7,12 @@ class ChooseParamsViewModel : BaseViewModel<ChooseParamsAppModel>() {
 
     override val model = ChooseParamsAppModel()
 
-    fun onSearchClick(){
+    fun onSearchClick() {
         model.action.postValue(
             ChooseParamsAppModel.Action.OpenListNameFragment(
-                amount = model.amount.value ?: "",
-                region = model.region.value ?: "",
-                gender = model.gender.value ?: ""
+                amount = model.amount.value,
+                region = model.region.value,
+                gender = model.gender.value
             )
         )
     }

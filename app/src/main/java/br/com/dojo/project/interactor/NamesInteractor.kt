@@ -11,9 +11,5 @@ class NamesInteractor(private val namesRepository: NamesRepository) {
         region: String?,
         gender: String?
     ): AppResult<List<PersonName>, Exception> =
-        try {
-            AppResult.Success(namesRepository.getNames(amount, region, gender))
-        } catch (exception: Exception) {
-            AppResult.Error(exception)
-        }
+        AppResult.Success(namesRepository.getNames(amount, region, gender))
 }
