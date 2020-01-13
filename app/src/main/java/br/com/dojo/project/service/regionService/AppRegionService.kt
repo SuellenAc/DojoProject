@@ -19,6 +19,7 @@ class AppRegionService(private val webService: WebService) : RegionService {
         AppResult.Error(ApiError(-1, "Invalid Json"))
     }
 
+
     interface Requests {
         @GET("regions")
         suspend fun getRegions(): List<String>
