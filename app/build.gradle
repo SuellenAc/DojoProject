@@ -28,6 +28,30 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    kapt {
+        useBuildCache = true
+        javacOptions {
+            option("-Xmaxerrs", 2000)
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    testOptions {
+        unitTests.all {
+            testLogging {
+                exceptionFormat = 'full'
+            }
+        }
+    }
 }
 
 dependencies {
